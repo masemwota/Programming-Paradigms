@@ -1,0 +1,3 @@
+object control {
+  println("Welcome to the Scala worksheet")
+}

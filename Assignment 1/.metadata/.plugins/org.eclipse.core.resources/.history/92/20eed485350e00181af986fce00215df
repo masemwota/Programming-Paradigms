@@ -1,0 +1,231 @@
+import scala.util.Random
+
+object string {  //1, 2, 4, 5, 8, 9
+  
+  /*
+  * PROBLEM 1
+  * Palindrome Detector
+  *
+  */
+  
+  def isPal(input : String) =
+  {
+  		val word = input.replaceAll("\\s", "")
+  		val len = word.length()
+  		
+  		var result = false
+  
+  		for(i <- 0 to len-1)
+  		{
+  			val j = len - i- 1
+
+  			if(word(i) != word(j)) result = false
+  			else result = true
+  		}
+  	
+  		result
+  }
+  
+  //tests
+  isPal("rotator")
+  isPal("      cat")
+  isPal("Rotator")
+  isPal("    r0tat0r ")
+  isPal("     madam  ")
+  isPal("GreeK   ")
+  isPal("ReDder")
+  isPal("$%^%$")
+  
+  
+  /*
+   * PROBLEM 2
+   * Improved palindrome detector
+   */
+   
+   def isPal2 (input: String) =
+   		isPal(input.replaceAll("[^a-zA-Z]", "").toLowerCase())
+   
+   //tests
+   isPal2("A man, a plan, a canal, Panama!")
+   isPal2("Not a palindrome")
+   isPal2("Was it a car OR a cat I saw?")
+   isPal2("No 'x' in Nixon")
+   
+   
+   
+   /*
+    * PROBLEM 4
+    * Random Word Generator
+    *
+    */
+    
+    def mkWord(prompt: Int = 5) =
+    {
+    		//unicode: 0061 -> 007A; 97 -> 122
+    		//r.nextInt((max - min) + 1) + min;
+    		
+    		var word = ""
+  	
+    		for(i <- 1 to prompt)
+    		{
+    			val rand = Random.nextInt((122 - 97) + 1) + 97;
+    			val c = rand.toChar
+    			
+    			word = word + c
+    		}
+    		word
+    }
+    
+    mkWord()
+    mkWord()
+    mkWord()
+    mkWord(20)
+    
+    
+    /*
+     * PROBLEM 5
+     * Random Sentence Generator
+     *
+     */
+     
+     def mkSentence(input: Int = Random.nextInt(5)+10) =
+     {
+     		var sentence = ""
+   
+     		for(i <- 1  to input)
+     		{
+     				val rand = Random.nextInt(10) + 1
+     				val word = mkWord(rand)
+     				sentence += word
+     				
+     				if(i == input) sentence += "."
+     				else sentence += " "
+     		}
+     		
+     		val c = sentence(1)
+     		val rest = sentence.substring(1)
+     		 
+     		c.toUpper + rest
+     }
+     
+     mkSentence(1)
+     mkSentence(2)
+     mkSentence(3)
+     mkSentence(4)
+     mkSentence()
+                                                  
+     /*
+      * PROBLEM 8
+      * Sum of two numbers
+      */
+      
+     def eval(input: String) =
+       {
+       		try
+       		{
+       			val compute = input.replaceAll("\\s", "")
+       			val numbers = compute.split("\\+")
+       	
+       			val plus = compute.indexOf("+")
+       			if(plus < 0) throw new Exception("missing operator")
+       			//if(numbers.isEmpty) throw new Exception("missing operator")
+       			
+       			val num1 = numbers(0).toDouble
+       			val num2 = numbers(1).toDouble
+       		
+       			num1 + num2
+       	}
+       	
+       	catch
+       	{
+       		case e: Exception => println(e)
+       	}
+       }
+     
+      eval("3.14+42")
+      
+		  eval("  -26  +  -49.99  ")
+			eval("21 * 43")
+			
+			eval("abc + 3")
+
+      
+      
+      
+      /*
+       * PROBLEM 9
+       * Products of two numbers
+       */
+       
+       def eval2(input: String) =
+      {
+      		try
+      		{
+      			var e = input
+   		  		e = e.dropWhile(isSpace _)
+   		 		val num1 = e.takeWhile(isNumeric _)
+    		 		if (num1.isEmpty) throw new NumberFormatException
+     			e = e.drop(num1.length)
+     			e = e.dropWhile(isSpace _)
+     		
+     			val op = e.takeWhile(isOperator _)
+     			if (op.isEmpty)  throw new Exception("missing operator")
+     			e = e.drop(op.length)
+     			e = e.dropWhile(isSpace _)
+     		
+     			val num2 = e.takeWhile(isNumeric _)
+     			if (num2.isEmpty) throw new NumberFormatException
+      		
+     			if (op == "+") num1.toDouble + num2.toDouble
+     			else if (op == "*") num1.toDouble * num2.toDouble
+     			else Double.NaN
+      		}
+      		
+      		catch
+      		{
+      			case e: Exception => println(e)
+      		}
+      }
+      
+      
+     
+      eval2("3.14+42")
+      
+		  eval2("  -26  +  -49.99  ")
+			eval2("21 * 43")
+			
+			eval2("abc + 3")
+       
+       
+       
+       def eval3(input: String) =
+       {
+       		try
+       		{
+       			var compute = input.replaceAll("\\s", "")
+       			println(input + " --> " + compute)
+       	
+       			val numbers = compute.split("\\+")
+       	
+       			if(numbers.isEmpty) throw new Exception("missing operator")
+       			
+       			val num1 = numbers(0).toDouble
+       			val num2 = numbers(1).toDouble
+       		
+       			num1 + num2
+       	}
+       	
+       	catch
+       	{
+       		case e: Exception => println(e)
+       	}
+       }
+       
+       eval3("21 + 4")
+       eval3("3.14+42")
+		   eval3("  -26  +  -49.99  ")
+			 eval3("21 * 43")
+			
+			 eval3("abc + 3")
+       
+}

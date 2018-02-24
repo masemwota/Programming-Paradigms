@@ -1,0 +1,137 @@
+class InvalidIncomeException extends Exception{}
+
+object Control {
+  //Sequence Control
+  
+  /*
+   * PROBLEM 1
+   * Tax Calculator
+   */
+  def tax(income: Double) = {
+  		if (income < 0) throw new InvalidIncomeException()
+  		 
+  		income match {
+  				case income if income < 20000 => 0 * income
+    			case income if income < 30000 => .05 * income
+    			case income if income < 40000 => 0.11 * income
+    			case income if income < 60000 => .23 * income
+    			case income if income < 100000 => .32 * income
+    			case income if income >= 100000 => .50 * income
+    			case _ => income
+  			}
+  }
+
+	//tax(-99)
+	tax(15000)
+	tax(25000)
+	tax(500000)
+	tax(100000000)
+	
+	
+	
+	/*
+	* PROBLEM 2
+	* Draw Rectangle
+	*/
+	
+	def rectangle(n: Int, m: Int) =
+	{
+		var rect = ""
+		for(i <- 1 to n; j <- 1 to m)
+		{
+			//println("i:" + i + " j: " + j)
+			rect += "*"
+			
+			if(j % m == 0) rect += "\n"
+		}
+		print(rect)
+	}
+	
+	rectangle(3,4)
+  println("4,4")
+  rectangle(4,4)
+     
+     
+   /*
+    * PROBLEM 3
+    * Print Sums
+    */
+    def printSums(n: Int, m: Int) =
+    {
+    		//Write a procedure that prints the sums of all integers i and j for 0 < i < n and 0 < j < m:
+    		for(i <- 1 to n; j <- 1 to m)
+    		{
+    			println(i + " + " + j + " = " + i+j)
+    		}
+    }
+    
+    printSums(4,3)
+            
+   /*
+    * PROBLEM 4
+    * Escape
+    */
+    import scala.util.control.Breaks._
+    def mystery =
+    {
+    			breakable {
+    				for(i <- 0 to 100)
+    				{
+    						if (i % 3 == 0) print ("")
+    						else if(i == 10) break
+    						else println("i = " + i)
+    				}
+    			}
+    			
+    			System.out.println("done")
+    }
+    
+    mystery
+    
+            
+   /*
+   	* Problem 5
+   	* Root below double
+   	*/
+   	
+   	def root(x: Double): Option[Double] = if (x < 0) None else Some(Math.sqrt(x))
+
+		def below10(x: Double): Option[Double] = if (x < 10) Some(x) else None
+		
+		def pureRoot(x: Option[Double]): Option[Double] =
+			x match {
+				case None => None
+				case Some(y) => root(y)
+			}
+
+		def pureBelow10(x: Option[Double]): Option[Double] =
+			x match {
+				case None => None
+				case Some(y) => below10(y)
+			}
+		
+		def below10root(x: Option[Double]): Option[Double] =
+		x match {
+				case None => None
+				case Some(y) => pureRoot(pureBelow10(Some(y)))
+			}
+		
+			//tests
+			root(36)
+			root(49)
+			pureRoot(Some(64))
+			pureRoot(Some(81))
+			
+			below10(7)
+			below10(12)
+			
+			pureBelow10(None)
+			pureBelow10(Some(8))
+			pureBelow10(Some(15))
+			
+			below10root(Some(9))
+			below10root(Some(15))
+			below10root(Some(4))
+			below10root(None)
+}
+ 

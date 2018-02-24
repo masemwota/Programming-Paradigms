@@ -1,0 +1,37 @@
+object dds {
+  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  
+  /**
+  *	PROBLEM 1
+  * CONTROL LOOP: a tail recursive implementation of controlLoop
+  */
+  def controlLoop[S](state: S, cycle: Int, halt: (S, Int)=> Boolean, update: (S, Int)=>S): S =
+  {
+  			if (halt(state, cycle)) state
+  			else controlLoop(update(state, cycle), cycle + 1, halt, update)
+  }                                               //> controlLoop: [S](state: S, cycle: Int, halt: (S, Int) => Boolean, update: (S
+                                                  //| , Int) => S)S
+  
+  
+  /**
+  * 	PROBLEM 2
+  POPULATION GROWTH: asexually reproducing pond of amoebas.
+  */
+  
+  //A pond of amoebas reproduces asexually until the pond's carrying capacity is reached.
+  //More specifically, the initial population of one doubles every week until it exceeds 105.
+  //Use your controlLoop function to compute the size of the final population.
+  
+  
+  //environmental example
+	
+	def updatePop(currentPop: Int, numWeeks: Int) = {
+		currentPop * 2
+	}                                         //> updatePop: (currentPop: Int, numWeeks: Int)Int
+	
+	def stop(currentPop: Int, numWeeks: Int) = (currentPop > 10e5)
+                                                  //> stop: (currentPop: Int, numWeeks: Int)Boolean
+	
+	controlLoop(50, 0, stop, updatePop)       //> res0: Int = 1638400
+	controlLoop(500, 0, stop, updatePop)
+}

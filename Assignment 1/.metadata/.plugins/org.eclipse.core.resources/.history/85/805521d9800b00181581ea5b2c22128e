@@ -1,0 +1,18 @@
+import scala.math._
+
+object math {
+  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  
+  //Problem 1
+  def solve(a: Double, b: Double, c: Double) =
+  {
+  			var x1 = ((-b) + Math.sqrt(Math.pow(b, 2) - (4* a * c)))/ (2*a)
+  			var x2 = ((-b) - Math.sqrt(Math.pow(b, 2) - (4* a * c)))/ (2*a)
+  //(-b +- sqrt(b^2 - 4ac))/ 2a
+  		x1
+  }                                               //> solve: (a: Double, b: Double, c: Double)Double
+  
+  solve(2, -2, -4)                                //> res0: Double = 2.0
+  solve(1, 0, 1)                                  //> res1: Double = NaN
+  solve(1, 0, -1)                                 //> res2: Double = 1.0
+}

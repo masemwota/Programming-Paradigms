@@ -1,0 +1,194 @@
+import scala.util.Random
+
+object string {  //1, 2, 4, 5, 8, 9
+  
+  /*
+  * PROBLEM 1
+  * Palindrome Detector
+  *
+  */
+  
+  def isPal(input : String) =
+  {
+  		val word = input.replaceAll("\\s", "")
+  		val len = word.length()
+  		
+  		var result = false
+  
+  		for(i <- 0 to len-1)
+  		{
+  			val j = len - i- 1
+
+  			if(word(i) != word(j)) result = false
+  			else result = true
+  		}
+  	
+  		result
+  }
+  
+  //tests
+  isPal("rotator")
+  isPal("      cat")
+  isPal("Rotator")
+  isPal("    r0tat0r ")
+  isPal("     madam  ")
+  isPal("GreeK   ")
+  isPal("ReDder")
+  isPal("$%^%$")
+  
+  
+  /*
+   * PROBLEM 2
+   * Improved palindrome detector
+   */
+   
+   def isPal2 (input: String) =
+   		isPal(input.replaceAll("[^a-zA-Z]", "").toLowerCase())
+   
+   //tests
+   isPal2("A man, a plan, a canal, Panama!")
+   isPal2("Not a palindrome")
+   isPal2("Was it a car OR a cat I saw?")
+   isPal2("No 'x' in Nixon")
+   
+   
+   
+   /*
+    * PROBLEM 4
+    * Random Word Generator
+    *
+    */
+    
+    def mkWord(prompt: Int = 5) =
+    {
+    		//unicode: 0061 -> 007A; 97 -> 122
+    		//r.nextInt((max - min) + 1) + min;
+    		
+    		var word = ""
+  	
+    		for(i <- 1 to prompt)
+    		{
+    			val rand = Random.nextInt((122 - 97) + 1) + 97;
+    			val c = rand.toChar
+    			
+    			word = word + c
+    		}
+    		word
+    }
+    
+    mkWord()
+    mkWord()
+    mkWord()
+    mkWord(20)
+    
+    
+    /*
+     * PROBLEM 5
+     * Random Sentence Generator
+     *
+     */
+     
+     def mkSentence(input: Int = Random.nextInt(5)+10) =
+     {
+     		var sentence = ""
+   
+     		for(i <- 1  to input)
+     		{
+     				val rand = Random.nextInt(10) + 1
+     				val word = mkWord(rand)
+     				sentence += word
+     				
+     				if(i == input) sentence += "."
+     				else sentence += " "
+     		}
+     		
+     		val c = sentence(1)
+     		val rest = sentence.substring(1)
+     		 
+     		c.toUpper + rest
+     }
+     
+     mkSentence(1)
+     mkSentence(2)
+     mkSentence(3)
+     mkSentence(4)
+     mkSentence()
+                                                  
+     /*
+      * PROBLEM 8
+      * Sum of two numbers
+      */
+      
+     def eval(input: String) =
+       {
+       		try
+       		{
+       			val compute = input.replaceAll("\\s", "")
+       			val numbers = compute.split("\\+")
+       	
+       			val plus = compute.indexOf("+")
+       			if(plus < 0) throw new Exception("missing operator")
+       			
+       			val num1 = numbers(0).toDouble
+       			val num2 = numbers(1).toDouble
+       		
+       			num1 + num2
+       	}
+       	
+       	catch
+       	{
+       		case e: Exception => println(e)
+       	}
+       }
+     
+      eval("3.14+42")
+      
+		  eval("  -26  +  -49.99  ")
+			eval("21 * 43")
+			
+			eval("abc + 3")
+
+      
+      
+      
+      /*
+       * PROBLEM 9
+       * Products of two numbers
+       */
+       
+       def eval2(input: String) =
+       {
+       		try
+       		{
+       			val compute = input.replaceAll("\\s", "")
+   
+       			val plus = compute.indexOf("+")
+       			val times = compute.indexOf("*")
+       			
+       			if((plus < 0) && (times < 0)) throw new Exception("missing operator")
+       			
+       			var numbers = Array("Hi")
+       			if(plus > 0)
+       				numbers = compute.split("\\+")
+       			else numbers = compute.split("\\*")
+       			
+       			val num1 = numbers(0).toDouble
+       			val num2 = numbers(1).toDouble
+       		
+       			num1 + num2
+       	}
+       	
+       	catch
+       	{
+       		case e: Exception => println(e)
+       	}
+       }
+       
+       eval2("21 + 4")
+       eval2("3.14+42")
+		   eval2("  -26  +  -49.99  ")
+			 eval2("21 * 43")
+			
+			 eval2("abc + 3")
+       
+}

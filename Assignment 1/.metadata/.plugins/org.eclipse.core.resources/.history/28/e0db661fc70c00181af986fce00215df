@@ -1,0 +1,162 @@
+class InvalidIncomeException extends Exception{}
+
+object Control {
+  //Sequence Control
+  
+  /*
+   * PROBLEM 1
+   * Tax Calculator
+   */
+  def tax(income: Double) = {
+  		if (income < 0) throw new InvalidIncomeException()
+  		 
+  		income match {
+  				case income if income < 20000 => 0 * income
+    			case income if income < 30000 => .05 * income
+    			case income if income < 40000 => 0.11 * income
+    			case income if income < 60000 => .23 * income
+    			case income if income < 100000 => .32 * income
+    			case income if income >= 100000 => .50 * income
+    			case _ => income
+  			}
+  }                                               //> tax: (income: Double)Double
+
+	//tax(-99)
+	tax(15000)                                //> res0: Double = 0.0
+	tax(25000)                                //> res1: Double = 1250.0
+	tax(500000)                               //> res2: Double = 250000.0
+	tax(100000000)                            //> res3: Double = 5.0E7
+	
+	
+	
+	/*
+	* PROBLEM 2
+	* Draw Rectangle
+	*/
+	
+	def rectangle(n: Int, m: Int) =
+	{
+		var rect = ""
+		for(i <- 1 to n; j <- 1 to m)
+		{
+			//println("i:" + i + " j: " + j)
+			rect += "*"
+			
+			if(j % m == 0) rect += "\n"
+		}
+		print(rect)
+	}                                         //> rectangle: (n: Int, m: Int)Unit
+	
+	rectangle(3,4)                            //> ****
+                                                  //| ****
+                                                  //| ****
+  println("4,4")                                  //> 4,4
+  rectangle(4,4)                                  //> ****
+                                                  //| ****
+                                                  //| ****
+                                                  //| ****
+     
+     
+   /*
+    * PROBLEM 3
+    * Print Sums
+    */
+    def printSums(n: Int, m: Int) =
+    {
+    		//Write a procedure that prints the sums of all integers i and j for 0 < i < n and 0 < j < m:
+    		for(i <- 1 to n; j <- 1 to m)
+    		{
+    			val sum = i+j
+    			println(i + " + " + j + " = " + sum)
+    		}
+    }                                             //> printSums: (n: Int, m: Int)Unit
+    
+    printSums(4,3)                                //> 1 + 1 = 11
+                                                  //| 1 + 2 = 12
+                                                  //| 1 + 3 = 13
+                                                  //| 2 + 1 = 21
+                                                  //| 2 + 2 = 22
+                                                  //| 2 + 3 = 23
+                                                  //| 3 + 1 = 31
+                                                  //| 3 + 2 = 32
+                                                  //| 3 + 3 = 33
+                                                  //| 4 + 1 = 41
+                                                  //| 4 + 2 = 42
+                                                  //| 4 + 3 = 43
+            
+   /*
+    * PROBLEM 4
+    * Escape
+    */
+    import scala.util.control.Breaks._
+    def mystery =
+    {
+    			breakable {
+    				for(i <- 0 to 100)
+    				{
+    						if (i % 3 == 0) print ("")
+    						else if(i == 10) break
+    						else println("i = " + i)
+    				}
+    			}
+    			
+    			System.out.println("done")
+    }                                             //> mystery: => Unit
+    
+    mystery                                       //> i = 1
+                                                  //| i = 2
+                                                  //| i = 4
+                                                  //| i = 5
+                                                  //| i = 7
+                                                  //| i = 8
+                                                  //| done
+    
+            
+   /*
+   	* Problem 5
+   	* Root below double
+   	*/
+   	
+   	def root(x: Double): Option[Double] = if (x < 0) None else Some(Math.sqrt(x))
+                                                  //> root: (x: Double)Option[Double]
+
+		def below10(x: Double): Option[Double] = if (x < 10) Some(x) else None
+                                                  //> below10: (x: Double)Option[Double]
+		
+		def pureRoot(x: Option[Double]): Option[Double] =
+			x match {
+				case None => None
+				case Some(y) => root(y)
+			}                         //> pureRoot: (x: Option[Double])Option[Double]
+
+		def pureBelow10(x: Option[Double]): Option[Double] =
+			x match {
+				case None => None
+				case Some(y) => below10(y)
+			}                         //> pureBelow10: (x: Option[Double])Option[Double]
+		
+		def below10root(x: Option[Double]): Option[Double] =
+		x match {
+				case None => None
+				case Some(y) => pureRoot(pureBelow10(Some(y)))
+			}                         //> below10root: (x: Option[Double])Option[Double]
+		
+			//tests
+			root(36)                  //> res4: Option[Double] = Some(6.0)
+			root(49)                  //> res5: Option[Double] = Some(7.0)
+			pureRoot(Some(64))        //> res6: Option[Double] = Some(8.0)
+			pureRoot(Some(81))        //> res7: Option[Double] = Some(9.0)
+			
+			below10(7)                //> res8: Option[Double] = Some(7.0)
+			below10(12)               //> res9: Option[Double] = None
+			
+			pureBelow10(None)         //> res10: Option[Double] = None
+			pureBelow10(Some(8))      //> res11: Option[Double] = Some(8.0)
+			pureBelow10(Some(15))     //> res12: Option[Double] = None
+			
+			below10root(Some(9))      //> res13: Option[Double] = Some(3.0)
+			below10root(Some(15))     //> res14: Option[Double] = None
+			below10root(Some(4))      //> res15: Option[Double] = Some(2.0)
+			below10root(None)         //> res16: Option[Double] = None
+}
+ 

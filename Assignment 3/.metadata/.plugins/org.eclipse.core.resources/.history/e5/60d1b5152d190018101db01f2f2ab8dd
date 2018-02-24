@@ -1,0 +1,27 @@
+object functional {
+  println("Welcome to the Scala worksheet")
+  
+	  /**
+	  * PROBLEM 1
+	  */
+		def compose(f: Int => Int, g: Int =>Int): Int=>Int =
+		{
+		   def r(x: Int): Int = f(g(x));
+		   r _
+		}
+		
+		/**
+		* PROBLEM 2
+		* Self-composition iterator combinator
+		*/
+		
+		//def selfIter[T](f: T=>T, n: Int) = f composed with itself n times.
+		
+		def selfIter[T] (f: T => T, n: Int) =
+		{
+				if(n == 0) id_
+				else if(n == 1)
+		}
+		
+		def id(x: Int) = x
+}
