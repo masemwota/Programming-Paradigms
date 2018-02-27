@@ -85,8 +85,9 @@ object dds {
   		def nthRoot(x: Double, n: Int) = solve((r: Double) => math.pow(r, n) - x)
                                                   //> nthRoot: (x: Double, n: Int)Double
   		
-  		nthRoot(49, 2)                    //> res9: Double = 7.000000142285558
-  		nthRoot(64, 3)                    //> res10: Double = 4.0000000001199725
-  		nthRoot(81, 4)                    //> res11: Double = 3.000000000001341
+  		nthRoot(8, 3)                     //> res9: Double = 2.000000000036784
+  		nthRoot(49, 2)                    //> res10: Double = 7.000000142285558
+  		nthRoot(64, 3)                    //> res11: Double = 4.0000000001199725
+  		nthRoot(81, 4)                    //> res12: Double = 3.000000000001341
   		
 }

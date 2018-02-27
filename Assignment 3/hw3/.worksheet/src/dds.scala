@@ -76,10 +76,11 @@ object dds {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; d
   		*	PROBLEM 6
   		* Approximating Nth Roots
   		*/
-  		def nthRoot(x: Double, n: Int) = solve((r: Double) => math.pow(r, n) - x);System.out.println("""nthRoot: (x: Double, n: Int)Double""");$skip(24); val res$9 = 
+  		def nthRoot(x: Double, n: Int) = solve((r: Double) => math.pow(r, n) - x);System.out.println("""nthRoot: (x: Double, n: Int)Double""");$skip(23); val res$9 = 
   		
-  		nthRoot(49, 2);System.out.println("""res9: Double = """ + $show(res$9));$skip(19); val res$10 = 
-  		nthRoot(64, 3);System.out.println("""res10: Double = """ + $show(res$10));$skip(19); val res$11 = 
-  		nthRoot(81, 4);System.out.println("""res11: Double = """ + $show(res$11))}
+  		nthRoot(8, 3);System.out.println("""res9: Double = """ + $show(res$9));$skip(19); val res$10 = 
+  		nthRoot(49, 2);System.out.println("""res10: Double = """ + $show(res$10));$skip(19); val res$11 = 
+  		nthRoot(64, 3);System.out.println("""res11: Double = """ + $show(res$11));$skip(19); val res$12 = 
+  		nthRoot(81, 4);System.out.println("""res12: Double = """ + $show(res$12))}
   		
 }
