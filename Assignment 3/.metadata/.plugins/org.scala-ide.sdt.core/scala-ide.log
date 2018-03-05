@@ -2946,3 +2946,182 @@ Java Model Exception: Java Model Status [DDS does not exist]
 2018-02-26 16:58:09,174  WARN [Worker-663] - ScalaProject - Project hw3 runs on platform default installation.
 2018-02-26 16:58:10,717  WARN [Worker-663] - ScalaProject - Project hw3 has platform default sourceLevel.
 2018-02-26 16:58:10,717  WARN [Worker-663] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 17:04:29,855  WARN [Worker-659] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 17:04:29,855  WARN [Worker-659] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 17:04:47,600 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 17:04:47,600 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 17:04:47,600 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 17:04:52,064  WARN [Worker-667] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 17:04:52,064  WARN [Worker-667] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 17:04:53,597  WARN [Worker-667] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 17:04:53,598  WARN [Worker-667] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 17:07:01,929  WARN [Worker-663] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 17:07:01,931  WARN [Worker-663] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 17:07:03,607  WARN [Worker-667] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 17:07:03,607  WARN [Worker-667] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 17:10:06,358  WARN [Worker-659] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 17:10:06,359  WARN [Worker-659] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 17:10:07,927  WARN [Worker-659] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 17:10:07,927  WARN [Worker-659] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 22:43:50,950  WARN [Worker-722] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 22:43:50,950  WARN [Worker-722] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 22:43:52,551  WARN [Worker-722] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 22:43:52,551  WARN [Worker-722] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 22:44:03,939  WARN [Worker-717] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 22:44:03,939  WARN [Worker-717] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 22:44:05,397  WARN [Worker-723] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 22:44:05,398  WARN [Worker-723] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 22:51:58,820  WARN [Worker-722] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 22:51:58,820  WARN [Worker-722] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:04:56,109  WARN [Worker-726] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:04:56,110  WARN [Worker-726] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:04:57,645  WARN [Worker-728] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:04:57,645  WARN [Worker-728] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:07:27,183 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:07:27,183 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:07:27,183 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:07:54,244 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:07:54,244 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:07:54,244 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:12:42,106 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:12:42,108 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:12:42,108 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:26:38,459  WARN [Worker-732] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:26:38,459  WARN [Worker-732] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:26:39,936  WARN [Worker-732] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:26:39,936  WARN [Worker-732] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:26:53,847  WARN [Worker-732] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:26:53,848  WARN [Worker-732] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:26:55,311  WARN [Worker-736] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:26:55,311  WARN [Worker-736] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:27:04,675  WARN [Worker-736] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:27:04,676  WARN [Worker-736] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:27:06,310  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:27:06,310  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:32:15,896  WARN [Worker-740] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:32:15,898  WARN [Worker-740] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:32:17,444  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:32:17,444  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:33:15,072  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:33:15,072  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:33:16,738  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:33:16,739  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:33:50,749  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:33:50,750  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:33:52,242  WARN [Worker-732] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:33:52,242  WARN [Worker-732] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:34:41,776  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:34:41,776  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:34:43,216  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:34:43,216  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:34:57,109  WARN [Worker-740] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:34:57,109  WARN [Worker-740] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:34:58,683  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:34:58,683  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:39:23,151  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:39:23,152  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:39:24,859  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:39:24,859  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:39:45,995  WARN [Worker-732] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:39:45,995  WARN [Worker-732] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:39:47,557  WARN [Worker-732] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:39:47,557  WARN [Worker-732] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:39:50,456  WARN [Worker-732] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:39:50,456  WARN [Worker-732] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:39:52,202  WARN [Worker-732] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:39:52,202  WARN [Worker-732] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:41:01,110  WARN [Worker-742] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:41:01,110  WARN [Worker-742] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:41:02,877  WARN [Worker-742] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:41:02,877  WARN [Worker-742] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:41:22,872  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:41:22,872  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:41:25,252  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:41:25,252  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:41:26,952  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:41:26,952  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:42:05,754  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:42:05,755  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:42:08,094  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:42:08,094  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:42:09,772  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:42:09,772  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:42:41,876 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:42:41,877 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:42:41,877 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:43:13,299  WARN [Worker-742] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:43:13,300  WARN [Worker-742] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:43:15,403  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:43:15,403  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:43:17,110  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:43:17,110  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:43:25,128  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:43:25,128  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:43:26,680  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:43:26,680  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:43:46,628  WARN [Worker-742] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:43:46,629  WARN [Worker-742] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:43:48,234  WARN [Worker-742] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:43:48,234  WARN [Worker-742] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:44:03,988  WARN [Worker-742] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:44:03,988  WARN [Worker-742] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:44:05,538  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:44:05,538  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:44:24,223  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:44:24,223  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:44:25,839  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:44:25,840  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:44:54,293  WARN [Worker-742] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:44:54,294  WARN [Worker-742] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:44:55,827  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:44:55,827  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:45:04,505  WARN [Worker-743] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:45:04,505  WARN [Worker-743] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:45:06,106  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:45:06,106  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:46:25,793  WARN [Worker-743] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:46:25,794  WARN [Worker-743] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:46:27,366  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:46:27,366  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:47:25,416  WARN [Worker-742] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:47:25,417  WARN [Worker-742] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:47:27,079  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:47:27,079  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:47:44,115  WARN [Worker-738] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:47:44,115  WARN [Worker-738] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:47:45,650  WARN [Worker-744] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:47:45,650  WARN [Worker-744] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:49:15,099  WARN [Worker-743] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:49:15,099  WARN [Worker-743] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:49:16,655  WARN [Worker-743] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:49:16,655  WARN [Worker-743] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:49:36,058  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:49:36,059  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:49:37,575  WARN [Worker-741] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:49:37,577  WARN [Worker-741] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:56:08,944 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:56:08,945 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:56:08,945 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:56:49,283 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:56:49,283 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:56:49,283 ERROR [Text Viewer Hover Presenter] - IScalaPresentationCompiler$ - Ignoring InterruptException
+2018-02-26 23:57:20,618  WARN [Worker-745] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:57:20,618  WARN [Worker-745] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:57:22,122  WARN [Worker-746] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:57:22,122  WARN [Worker-746] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:58:24,952  WARN [Worker-746] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:58:24,953  WARN [Worker-746] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:58:26,541  WARN [Worker-745] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:58:26,541  WARN [Worker-745] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:58:31,277  WARN [Worker-746] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:58:31,277  WARN [Worker-746] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:58:53,495  WARN [Worker-746] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:58:53,495  WARN [Worker-746] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-26 23:58:54,976  WARN [Worker-748] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-26 23:58:54,977  WARN [Worker-748] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-27 00:00:10,115  WARN [Worker-746] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-27 00:00:10,123  WARN [Worker-746] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-27 00:00:19,718  WARN [Worker-745] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-27 00:00:19,718  WARN [Worker-745] - ScalaProject - Project hw3 runs on platform default installation.
+2018-02-27 00:00:21,482  WARN [Worker-746] - ScalaProject - Project hw3 has platform default sourceLevel.
+2018-02-27 00:00:21,482  WARN [Worker-746] - ScalaProject - Project hw3 runs on platform default installation.

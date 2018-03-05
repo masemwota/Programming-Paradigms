@@ -104,27 +104,66 @@ object functional {
 		* De-Optionize
 		*/
 		
+		def sqrt(x: Double): Option[Double] =
+		if (x < 0) None else Some(math.sqrt(x))
+                                                  //> sqrt: (x: Double)Option[Double]
+		
+		sqrt(100)                         //> res20: Option[Double] = Some(10.0)
+		sqrt(-100)                        //> res21: Option[Double] = None
+		
 		def parseDigits(digits: String): Option[Int] =
    		if (digits.matches("[0-9]*")) Some(digits.toInt) else None
                                                   //> parseDigits: (digits: String)Option[Int]
 		
-
-		def parse2(digits: String): Double =
-			parseDigits(digits) match
+		
+		def sqrt2(x: Double): Double =
+			sqrt(x) match
 			{
 				case None => throw new Exception("bad input")
 				case Some(result) => result
-			}                         //> parse2: (digits: String)Double
+			}                         //> sqrt2: (x: Double)Double
+			
 		
-
-		def deOptionize[T](f: T => Option[T], input: T) =
+		//the code
+		//S is stuff you don't care about
+		
+		/*
+		def deOptionize[S,T](f: S => Option[T]): S => T =
 		{
-			val result = f(input)
-			result match
+			f_ match
+			{
+				case None[S,T] => throw new Exception("bad input")
+				case Some(result) => result
+			}
+		}*/
+		
+		
+		def deOptionize[T](f: T => Option[T]): T => T =
+		{
+			//val result = f
+			f(S_) match
 			{
 				case None => throw new Exception("bad input")
-				case Some(result) => f
+				case Some(result) => result
 			}
-	
-		}                                 //> deOptionize: [T](f: T => Option[T], input: T)T => Option[T]
+			
+			if f is None
+		}
+		
+		
+		val sqrt3 = deOptionize(sqrt)
+		
+		sqrt3(100)
+		sqrt3(-100)
+		
+		
+		
+		try {
+			println(sqrt2(100))
+			println(sqrt2(-100))
+		} catch {
+				case e: Exception => println(e)
+		}                                 //> 10.0
+                                                  //| java.lang.Exception: bad input
+		
 }

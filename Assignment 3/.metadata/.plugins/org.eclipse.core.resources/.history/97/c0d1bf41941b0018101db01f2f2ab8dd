@@ -69,7 +69,6 @@ object functional {
 		countPass(Array(2, 3, 4, 5, 7, 8), (x: Int) => x % 2 == 0)
                                                   //> res12: Int = 3
  		countPass(Array("mom", "rotator", "boy", "racecar"), (x: String) => x == x.reverse)
-                                                  //> res13: Int = 3
 	
 		
 		/**
@@ -86,16 +85,16 @@ object functional {
 				}
 				
 				rec
-		}                                 //> recur: (baseVal: Int, combine: (Int, Int) => Int)Int => Int
+		}
 		//factorial
-		recur(1, _*_)(4)                  //> res14: Int = 24
-		recur(1, _*_)(5)                  //> res15: Int = 120
-		recur(1, _*_)(10)                 //> res16: Int = 3628800
+		recur(1, _*_)(4)
+		recur(1, _*_)(5)
+		recur(1, _*_)(10)
 		
 		//triangle
-		recur(0, _+_)(4)                  //> res17: Int = 10
-		recur(0, _+_)(5)                  //> res18: Int = 15
-		recur(0, _+_)(10)                 //> res19: Int = 55
+		recur(0, _+_)(4)
+		recur(0, _+_)(5)
+		recur(0, _+_)(10)
 		
 		
 		
@@ -106,7 +105,6 @@ object functional {
 		
 		def parseDigits(digits: String): Option[Int] =
    		if (digits.matches("[0-9]*")) Some(digits.toInt) else None
-                                                  //> parseDigits: (digits: String)Option[Int]
 		
 
 		def parse2(digits: String): Double =
@@ -114,7 +112,7 @@ object functional {
 			{
 				case None => throw new Exception("bad input")
 				case Some(result) => result
-			}                         //> parse2: (digits: String)Double
+			}
 		
 
 		def deOptionize[T](f: T => Option[T], input: T) =
@@ -126,5 +124,5 @@ object functional {
 				case Some(result) => f
 			}
 	
-		}                                 //> deOptionize: [T](f: T => Option[T], input: T)T => Option[T]
+		}
 }

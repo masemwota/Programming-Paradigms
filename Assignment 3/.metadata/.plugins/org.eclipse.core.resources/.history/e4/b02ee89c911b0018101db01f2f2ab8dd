@@ -1,0 +1,188 @@
+object functional {
+  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  
+	  /**
+	  * PROBLEM 1
+	  */
+		def compose[T] (f: T => T, g: T =>T): T=>T =
+		{
+		   def r(x: T): T = f(g(x));
+		   r _
+		}                                 //> compose: [T](f: T => T, g: T => T)T => T
+		
+		/**
+		* PROBLEM 2
+		* Self-composition iterator combinator
+		*/
+				
+		//def selfIter[T](f: T=>T, n: Int) = f composed with itself n times.
+		def id[T](x: T): T = x            //> id: [T](x: T)T
+		
+		def selfIter[T] (f: T => T, n: Int): T => T =
+		{
+				if(n == 0) id _
+				else compose(selfIter(f, n-1), f)
+		}                                 //> selfIter: [T](f: T => T, n: Int)T => T
+		
+		def inc(x: Double) = x + 1        //> inc: (x: Double)Double
+	
+		 
+		selfIter(inc, 0) (10)             //> res0: Double = 10.0
+		selfIter(inc, 2) (4)              //> res1: Double = 6.0
+		selfIter(inc, 4) (5)              //> res2: Double = 9.0
+		selfIter(inc, 5) (5)              //> res3: Double = 10.0
+		
+		
+		def double(x: Double) = 2 * x     //> double: (x: Double)Double
+		
+		selfIter(double, 0) (2)           //> res4: Double = 2.0
+		selfIter(double, 2) (2)           //> res5: Double = 8.0
+		selfIter(double, 2) (3)           //> res6: Double = 12.0
+		selfIter(double, 3) (2)           //> res7: Double = 16.0
+		selfIter(double, 3) (3)           //> res8: Double = 24.0
+		selfIter(double, 3) (5)           //> res9: Double = 40.0
+		selfIter(double, 4) (1)           //> res10: Double = 16.0
+		
+		
+		/**
+		*	PROBLEM 3
+		* Counts elements
+		*/
+		
+		//Write a function called countPass that counts the number of elements in an array of elements of type T that pass a test of type T=>Boolean.
+		//make it recursive
+		
+		
+		/*
+		def countPass[T](vals: Array[T], test: T => Boolean): Int =
+		{
+				//if(test(vals(0))) 1
+				//else countPass(vals, test)
+				
+				def countP(place: Int, count: Int ): Int =
+				{
+						if(test(vals(place))) 1
+						else countP(place -1)
+				}
+				countP(vals.size-1, 0)
+		}
+		
+		def odd(n: Int) = n % 2 != 0
+		def pal(n: String) = (n == n.reverse)
+		countPass(Array(1,2,3,4,5), odd)
+		countPass(Array("mom", "dad", "dog","bro"), pal)
+		*/
+		def countPass[T](arr: Array[T], f:T=>Boolean) = {
+		countP(arr, f, 0, 0)
+	
+	}                                         //> countPass: [T](arr: Array[T], f: T => Boolean)Int
+	
+	def countP[T](arr: Array[T], f: T=>Boolean, occurences: Int, index: Int): Int = {
+		if (arr.length == index) occurences
+		else {
+			val value = arr(index)
+			if(f(value)) countP(arr, f, occurences+1, index+1)
+			else countP(arr, f, occurences, index+1)
+		}
+	}                                         //> countP: [T](arr: Array[T], f: T => Boolean, occurences: Int, index: Int)Int
+	
+	countPass(Array(2, 3, 4, 5), (x: Int) => x % 2 == 0)
+                                                  //> res2: Int = 2
+  countPass(Array("mom", "rotator", "boy", "racecar"), (x: String) => x == x.reverse)
+	
+		
+		/**
+		* 	PROBLEM 4
+		* Recur combinator
+		*/
+	
+		def recur(baseVal: Int, combine: (Int, Int) => Int): Int => Int =
+		{
+				def rec(n: Int): Int =
+				{
+						if(n == 0) baseVal
+						else combine(n, rec(n-1))
+				}
+				
+				rec
+		}                                 //> recur: (baseVal: Int, combine: (Int, Int) => Int)Int => Int
+		//factorial
+		recur(1, _*_)(4)                  //> res11: Int = 24
+		recur(1, _*_)(5)                  //> res12: Int = 120
+		recur(1, _*_)(10)                 //> res13: Int = 3628800
+		
+		//triangle
+		recur(0, _+_)(4)                  //> res14: Int = 10
+		recur(0, _+_)(5)                  //> res15: Int = 15
+		recur(0, _+_)(10)                 //> res16: Int = 55
+		
+		
+		
+		/**
+		*	PROBLEM 5
+		* De-Optionize
+		*/
+		
+		def sqrt(x: Double): Option[Double] =
+		if (x < 0) None else Some(math.sqrt(x))
+                                                  //> sqrt: (x: Double)Option[Double]
+		
+		sqrt(100)                         //> res17: Option[Double] = Some(10.0)
+		sqrt(-100)                        //> res18: Option[Double] = None
+		
+		def parseDigits(digits: String): Option[Int] =
+   		if (digits.matches("[0-9]*")) Some(digits.toInt) else None
+                                                  //> parseDigits: (digits: String)Option[Int]
+		
+		
+		def sqrt2(x: Double): Double =
+			sqrt(x) match
+			{
+				case None => throw new Exception("bad input")
+				case Some(result) => result
+			}                         //> sqrt2: (x: Double)Double
+			
+		
+		//the code
+		//S is stuff you don't care about
+		
+		/*
+		def deOptionize[S,T](f: S => Option[T]): S => T =
+		{
+			f_ match
+			{
+				case None[S,T] => throw new Exception("bad input")
+				case Some(result) => result
+			}
+		}*/
+		
+		/*
+		def deOptionize[T](f: T => Option[T]): T => T =
+		{
+			//val result = f
+			f(S_) match
+			{
+				case None => throw new Exception("bad input")
+				case Some(result) => result
+			}
+			
+			if f is None
+		}
+		
+		
+		val sqrt3 = deOptionize(sqrt)
+		
+		sqrt3(100)
+		sqrt3(-100)
+		
+		*/
+		
+		try {
+			println(sqrt2(100))
+			println(sqrt2(-100))
+		} catch {
+				case e: Exception => println(e)
+		}                                 //> 10.0
+                                                  //| java.lang.Exception: bad input
+		
+}

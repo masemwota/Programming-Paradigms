@@ -15,6 +15,7 @@ object functional {
 		* Self-composition iterator combinator
 		*/
 				
+		//def selfIter[T](f: T=>T, n: Int) = f composed with itself n times.
 		def id[T](x: T): T = x            //> id: [T](x: T)T
 		
 		def selfIter[T] (f: T => T, n: Int): T => T =
@@ -48,29 +49,28 @@ object functional {
 		* Counts elements
 		*/
 		
-		def countPass[T](vals: Array[T], test:T=>Boolean) =
+		//Write a function called countPass that counts the number of elements in an array of elements of type T that pass a test of type T=>Boolean.
+		//make it recursive
+		def countPass[T](vals: Array[T], test: T => Boolean): Int =
 		{
-				def countP[T](occurences: Int, index: Int): Int =
-				{
-					if (vals.length == index) occurences
-					else
-					{
-						if(test(vals(index))) countP(occurences+1, index+1)
-						else countP(occurences, index+1)
-					}
-				}
+				//if(test(vals(0))) 1
+				//else countPass(vals, test)
 				
-				countP(0, 0)
+				def countP(place: Int): Int =
+				{
+						if(test(vals(place))) 1
+						else countP(place -1)
+				}
+				countP(vals.size)
 		}                                 //> countPass: [T](vals: Array[T], test: T => Boolean)Int
-	 
-	
-		countPass(Array(1, 2, 3, 4, 5), (n: Int) => n % 2 != 0)
-                                                  //> res11: Int = 3
-		countPass(Array(2, 3, 4, 5, 7, 8), (x: Int) => x % 2 == 0)
-                                                  //> res12: Int = 3
- 		countPass(Array("mom", "rotator", "boy", "racecar"), (x: String) => x == x.reverse)
-                                                  //> res13: Int = 3
-	
+		
+		def odd(n: Int) = n % 2 != 0      //> odd: (n: Int)Boolean
+		def pal(n: String) = (n == n.reverse)
+                                                  //> pal: (n: String)Boolean
+		countPass(Array(1,2,3,4,5), odd)  //> res11: Int = 1
+		countPass(Array("mom", "dad", "dog","bro"), pal)
+                                                  //> res12: Int = 1
+		
 		
 		/**
 		* 	PROBLEM 4
@@ -88,14 +88,14 @@ object functional {
 				rec
 		}                                 //> recur: (baseVal: Int, combine: (Int, Int) => Int)Int => Int
 		//factorial
-		recur(1, _*_)(4)                  //> res14: Int = 24
-		recur(1, _*_)(5)                  //> res15: Int = 120
-		recur(1, _*_)(10)                 //> res16: Int = 3628800
+		recur(1, _*_)(4)                  //> res13: Int = 24
+		recur(1, _*_)(5)                  //> res14: Int = 120
+		recur(1, _*_)(10)                 //> res15: Int = 3628800
 		
 		//triangle
-		recur(0, _+_)(4)                  //> res17: Int = 10
-		recur(0, _+_)(5)                  //> res18: Int = 15
-		recur(0, _+_)(10)                 //> res19: Int = 55
+		recur(0, _+_)(4)                  //> res16: Int = 10
+		recur(0, _+_)(5)                  //> res17: Int = 15
+		recur(0, _+_)(10)                 //> res18: Int = 55
 		
 		
 		
@@ -104,27 +104,66 @@ object functional {
 		* De-Optionize
 		*/
 		
+		def sqrt(x: Double): Option[Double] =
+		if (x < 0) None else Some(math.sqrt(x))
+                                                  //> sqrt: (x: Double)Option[Double]
+		
+		sqrt(100)                         //> res19: Option[Double] = Some(10.0)
+		sqrt(-100)                        //> res20: Option[Double] = None
+		
 		def parseDigits(digits: String): Option[Int] =
    		if (digits.matches("[0-9]*")) Some(digits.toInt) else None
                                                   //> parseDigits: (digits: String)Option[Int]
 		
-
-		def parse2(digits: String): Double =
-			parseDigits(digits) match
+		
+		def sqrt2(x: Double): Double =
+			sqrt(x) match
 			{
 				case None => throw new Exception("bad input")
 				case Some(result) => result
-			}                         //> parse2: (digits: String)Double
+			}                         //> sqrt2: (x: Double)Double
+			
 		
-
-		def deOptionize[T](f: T => Option[T], input: T) =
+		//the code
+		//S is stuff you don't care about
+		
+		/*
+		def deOptionize[S,T](f: S => Option[T]): S => T =
 		{
-			val result = f(input)
-			result match
+			f_ match
+			{
+				case None[S,T] => throw new Exception("bad input")
+				case Some(result) => result
+			}
+		}*/
+		
+		/*
+		def deOptionize[T](f: T => Option[T]): T => T =
+		{
+			//val result = f
+			f(S_) match
 			{
 				case None => throw new Exception("bad input")
-				case Some(result) => f
+				case Some(result) => result
 			}
-	
-		}                                 //> deOptionize: [T](f: T => Option[T], input: T)T => Option[T]
+			
+			if f is None
+		}
+		
+		
+		val sqrt3 = deOptionize(sqrt)
+		
+		sqrt3(100)
+		sqrt3(-100)
+		
+		*/
+		
+		try {
+			println(sqrt2(100))
+			println(sqrt2(-100))
+		} catch {
+				case e: Exception => println(e)
+		}                                 //> 10.0
+                                                  //| java.lang.Exception: bad input
+		
 }
