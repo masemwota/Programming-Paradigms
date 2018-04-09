@@ -7,8 +7,6 @@ case class Integer(val value: Int) extends expression.Literal with Ordered[Integ
   def -(other: Integer) = Integer(this.value - other.value)
   def /(other: Integer) = if (other.value == 0) throw new Exception else Integer(this.value / other.value)
   
-  //def <(other: Integer) = this.compare(other) < 0
-
   def unary_- = Integer(-this.value) // unary negation
   override def toString = value.toString
   def compare(other: Integer): Int = if (this.value < other.value) -1 else if (other.value < this.value) 1 else 0
@@ -22,6 +20,7 @@ case class Integer(val value: Int) extends expression.Literal with Ordered[Integ
 }
 
 object Integer {
-  //implicit def intToReal(n: Integer): Real = Real(n.value.toDouble)
+  //def apply(value: Int) = new Integer(value)
+  implicit def intToReal(n: Integer): Real = Real(n.value.toDouble)
 }
 

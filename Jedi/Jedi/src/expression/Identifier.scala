@@ -8,10 +8,6 @@ case class Identifier(val name: String) extends Expression {
    
    def execute(env: context.Environment) = 
    {
-     env.get(this) match
-     {
-       case None => value.Notification()
-       case Some(x) => x
-     }
+     env(this)
    }
 }
