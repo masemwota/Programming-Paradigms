@@ -1,5 +1,0 @@
-package value
-
-trait Expression {
-  
-}

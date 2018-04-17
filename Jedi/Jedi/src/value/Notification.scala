@@ -12,7 +12,12 @@ class Notification(val note: String) extends Value{
 object Notification 
 {
   def apply(note: String = "unspecified") = new Notification(note)
+  
   def ok = Notification("ok")
   def done = Notification("done")
   def unspecified = Notification("unspecified")
+
+  def OK = Notification("ok")
+  def DONE = Notification("done")
+  def UNSPECIFIED = Notification("unspecified")
 }
