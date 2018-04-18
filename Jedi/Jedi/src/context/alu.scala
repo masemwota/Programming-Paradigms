@@ -128,14 +128,14 @@ object alu {
    }  
   
  
-    def equals (args: List[Value]): Value = 
+   def equals (args: List[Value]): Value = 
     {
       def helper(head: Value, tail: List[Value], result: Boolean): Boolean = 
       {
         if (result == true) 
         {
-          if(head == tail.head) helper(head, tail.tail, result) 
-          else helper(head, tail.tail, false)
+            if(head == tail.head && tail.tail != Nil) helper(head, tail.tail, result)
+            else helper(head, tail.tail, false)
         }
         
         else result
@@ -144,18 +144,19 @@ object alu {
       Boole(helper(args.head, args.tail, true))
     }
    
+   
     def unequals (args: List[Value]): Value = {not(List(equals(args)))}
     
   
     def not (args: List[Value]): Value = 
     {
-      if(args.length == 1) throw new JediException("Not takes one input")
+      if(args.length != 1) throw new JediException("Not takes one input")
       else 
       {
         args(0) match 
         {
           case b: Boole => if(b.value == true) Boole(false) else Boole(true)
-          case _ => throw new JediException("Not takes a Boole")
+          case _ => throw new JediException("Not takes a Boole" + args(0))
         }
       }
     }

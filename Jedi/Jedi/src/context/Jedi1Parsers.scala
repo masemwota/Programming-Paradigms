@@ -1,9 +1,7 @@
 package context
-
 import scala.util.parsing.combinator._
 import expression._
 import value._
-
 /*
  * Notes:
  * disjunction reduces to conjunction reduces to equality ... reduces to term
@@ -12,7 +10,6 @@ import value._
  * Had to make some big corrections to numeral regex
  * This could probably have been a singleton
  */
-
 class Jedi1Parsers extends RegexParsers {
    
    def expression: Parser[Expression] = declaration | conditional | disjunction | failure("Invalid expression")
@@ -30,24 +27,27 @@ class Jedi1Parsers extends RegexParsers {
      case con ~ Nil => con
      case con ~ more => Disjunction(con::more)
    }
-   
-   /** not done **/
+  
    // conjunction ::= equality ~ ("&&" ~ equality)*
-   def  conjunction: Parser[Expression] = conjunction ~ rep("||" ~> conjunction) ^^ {
-     case con ~ Nil => con
-     case con ~ more => Disjunction(con::more)
+   def  conjunction: Parser[Expression] = equality ~ rep("&&" ~> equality) ^^ {
+     case eq ~ Nil => eq
+     case eq ~ more => Conjunction(eq::more)
    }
    
-   /** not done **/
    // equality ::= inequality ~ ("==" ~ inequality)*
-   def  equality: Parser[Expression] = conjunction ~ rep("||" ~> conjunction) ^^ {
-     case con ~ Nil => con
-     case con ~ more => Disjunction(con::more)
+   def  equality: Parser[Expression] = inequality ~ rep("==" ~> inequality) ^^ {
+     case ineq ~ Nil => ineq
+     case ineq ~ more => FunCall(Identifier("equals"), ineq::more)
    }
    
    // inequality ::= sum ~ (("<" | ">" | "!=") ~ sum)?
-   
-   // 
+  def inequality: Parser[Expression] = sum ~ opt(("<" | ">" | "!=" ) ~ sum) ^^
+    {
+      case op ~ None => op
+      case op ~ Some("<" ~ sum) => FunCall(Identifier("less"), List(op, sum))
+      case op ~ Some(">" ~ sum) => FunCall(Identifier("more"), List(op, sum))
+      case op ~ Some("!=" ~ sum) => FunCall(Identifier("unequals"), List(op, sum))
+    }
 
    
   // negate(exp) = 0 - exp
@@ -84,28 +84,33 @@ class Jedi1Parsers extends RegexParsers {
    
  def literal = boole | real | integer | chars | identifier
    
-
  // chars ::= any characters bracketed by quotes
  def chars: Parser[Chars] = """\"[^"]+\"""".r ^^ {
      case characters => Chars(characters.substring(1, characters.length - 1))
  }
  
- /*
- // integer ::= 0|(\+|-)?[1-9][0-9]*
- def Integer: Parser[Integer] = """0|(\+|-)?[1-9][0-9]*"""".r ^^ {
-     case digits => Integer(digits.toInt)
- }
- */
  
+ // integer ::= 0|(\+|-)?[1-9][0-9]*
  def integer: Parser[Integer] = """0|(\+|-)?[1-9][0-9]*""".r ^^ {
    case digits => Integer(digits.toInt)
  }
  
  // real ::= (\+|-)?[0-9]+\.[0-9]+
+ def real: Parser[Real] = """(\+|-)?[0-9]+\.[0-9]+""".r ^^ {
+   case nums => Real(nums.toDouble)
+ }
  
  // boole ::= true | false
-
+ def boole: Parser[Boole] = ("true" | "false" )^^
+ {
+   case bool => Boole(bool.toBoolean)
+ }
+ 
  // identifier ::= [a-zA-Z][a-zA-Z0-9]*
+  def identifier: Parser[Identifier] = """[a-zA-Z][a-zA-Z0-9]*""".r ^^ {
+   case iden => Identifier(iden.toString)
+   }
+ 
  
  // funCall ::= identifier ~ operands
  def funCall: Parser[FunCall] = identifier ~ operands ^^ {
@@ -113,5 +118,11 @@ class Jedi1Parsers extends RegexParsers {
  }
  
  // operands ::= "(" ~ (expression ~ ("," ~ expression)*)? ~ ")"
+  def operands: Parser[List[Expression]] = "(" ~> opt(expression~rep("," ~> expression)) <~ ")" ^^
+    {
+      case None => Nil
+      case Some(ex ~ Nil) => List(ex)
+      case Some(ex ~ exps) => ex::exps
+    }
   
 }
