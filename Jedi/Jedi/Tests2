@@ -4,3 +4,6 @@ sum
 3 < 4 && 1 + 1 == 2 
 3 < 4 && 1 + 1 == 2 && sum < 19 && nada
 4 < 3 || 1 + 1 != 2 || sum < 19 ||  true || nada
+
+def n = 5
+def tri = if (n == 0) 0 else n + tri(n - 1)

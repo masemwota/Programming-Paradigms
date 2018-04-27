@@ -2,7 +2,6 @@ package context
 
 import expression._
 import value._
-import com.sun.org.apache.xpath.internal.operations.Minus
 
 /*
  * Notes:
@@ -131,20 +130,18 @@ object alu {
  
    def equals (args: List[Value]): Value = 
     {
-       if (args.length < 2 || args == Nil) throw new JediException("Equals must have at least two parameters")
-       else {
-         def helper(head: Value, tail: List[Value], result: Boolean): Boolean = {
-          if (result == true && tail != Nil) 
-          {
-             if(head == tail.head) helper(head, tail.tail, result)
-             else helper(head, tail.tail, false)
-          }
-        
-          else result
+      def helper(head: Value, tail: List[Value], result: Boolean): Boolean = 
+      {
+        if (result == true) 
+        {
+            if(head == tail.head && tail.tail != Nil) helper(head, tail.tail, result)
+            else helper(head, tail.tail, false)
         }
+        
+        else result
+      }
       
-        Boole(helper(args.head, args.tail, true))
-       }
+      Boole(helper(args.head, args.tail, true))
     }
    
    

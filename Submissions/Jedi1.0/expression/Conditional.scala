@@ -17,7 +17,7 @@ case class Conditional(val cond: Expression, val cons: Expression, val alt: Expr
           {
             case b: Boole => if (b.value) cons.execute(env) 
                              else {if(alt != null) alt.execute(env) else Notification.UNSPECIFIED}
-            case _ => throw new TypeException
+            case _ => Notification.UNSPECIFIED
           } 
    }
 }
