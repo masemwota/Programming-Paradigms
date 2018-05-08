@@ -11,13 +11,11 @@ case class Identifier(val name: String) extends Expression {
    def execute(env: context.Environment) = 
    {
      val exec = env(this)
-     exec
-     /*exec match 
+     exec match 
      {
-       case v: Thunk => exec.asInstanceOf[Thunk]()
-       case v: Text => blahahhaha
-     }*/
+       case th: Thunk => th.apply(List(exec))
+       case t: Text => t.body.execute(env); 
+       case _ => exec
+     }
    }
 }
-
-//case b: Boole
