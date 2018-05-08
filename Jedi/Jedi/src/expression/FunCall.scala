@@ -7,38 +7,26 @@ import context._
  * However, flags allow users to change this to pass-by-name or pass-by-text, two forms of lazy execution in which only needed operands are executed.
  */
 case class FunCall(val operator: Identifier, val ops: List[Expression]) extends Expression {
-  /*
+ 
   def execute(env: context.Environment): value.Value = 
   {
-    if(env.contains(operator)) 
-    {
-        val maybeClosure = operator.execute(env) //operator is name of a function 
-        if (maybeClosure.isInstanceOf[Closure]) {
-          val closure = maybeClosure.asInstanceOf[Closure]
-          val args = ops.map(_.execute(env))
-          closure.apply(args, env)
-        }
-        else maybeClosure.asInstanceOf[Closure].apply(arguments)
-    }
-  }
-  */
-  
-  def execute(env: context.Environment): value.Value = 
-  {
+      var myEnv = env  
+      if(!Flags.useStaticScopeRule) myEnv = new Environment()
+      
       var arguments: List[Value] = List()
       val p = Flags.paramaterPassing
      
       p match 
       {
-        case Flags.passByName => arguments = ops.map((n: Expression) => new Thunk(n, env))
+        case Flags.passByName => arguments = ops.map((n: Expression) => new Thunk(n, myEnv))
         case Flags.passByText => arguments = ops.map((n: Expression) => new Text(n))
-        case Flags.passByValue => arguments = ops.map(_.execute(env))
+        case Flags.passByValue => arguments = ops.map(_.execute(myEnv))
         //case _ => arguments
       }
     
-      if(env.contains(operator))
+      if(myEnv.contains(operator))
       {
-        val maybeClosure = operator.execute(env) //operator is name of a function 
+        val maybeClosure = operator.execute(myEnv) //operator is name of a function 
         if (maybeClosure.isInstanceOf[Closure]) 
         {
            val closure = maybeClosure.asInstanceOf[Closure]
@@ -53,7 +41,7 @@ case class FunCall(val operator: Identifier, val ops: List[Expression]) extends 
     
       else 
       {
-        val args = ops.map(_.execute(env))
+        val args = ops.map(_.execute(myEnv))
         alu.execute(operator, args)
       }
   }
