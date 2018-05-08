@@ -1,3 +1,0 @@
-def x = 10
-def add5 = lambda(n) { def x = 5; n + x }
-add5(x + 1)
