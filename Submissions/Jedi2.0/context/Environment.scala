@@ -14,16 +14,8 @@ class Environment(var extension: Environment = null)
   }
   
   override def apply(name: Identifier): Value = {
-    if (super.contains(name)) super.apply(name)
+    if (this.contains(name)) super.apply(name)
     else if (extension != null) extension.apply(name)
     else throw new UndefinedException(name)
-  }
-  
-  override def contains(name: Identifier): Boolean = {
-    var result = super.contains(name)
-    if(!result && extension != null) {
-        result = extension.contains(name)
-    }
-    result
   }
 }
