@@ -8,7 +8,7 @@ import context._
  */
 case class FunCall(val operator: Identifier, val ops: List[Expression]) extends Expression {
  
-  def execute(env: context.Environment): value.Value = 
+  def execute(env: Environment): value.Value = 
   {
       var myEnv = env  
       if(!Flags.useStaticScopeRule) myEnv = new Environment()
